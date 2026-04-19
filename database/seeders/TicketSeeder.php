@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Ticket;
 use Illuminate\Database\Seeder;
 
 class TicketSeeder extends Seeder
@@ -11,22 +12,22 @@ class TicketSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Ticket::create([
-            'subject' => 'Database error when creating AI run',
+        Ticket::factory([
+            'title' => 'Database error when creating AI run',
             'body' => 'errno: 150 "Foreign key constraint is incorrectly formed"',
-        ]);
+        ])->create();
 
-        \App\Models\Ticket::create([
-            'subject' => 'Bluetooth headset stopped',
+        Ticket::factory([
+            'title' => 'Bluetooth headset stopped',
             'body' => 'Audio drops when I press pause',
-        ]);
+        ])->create();
 
 
-        \App\Models\Ticket::create([
-            'subject' => 'BSOD',
+        Ticket::factory([
+            'title' => 'BSOD',
             'body' => 'After updating Windows 98, I get a blue screen of death every time I try to open Internet Explorer',
-        ]);
+        ])->create();
 
-        \App\Models\Ticket::factory(10)->create();
+        Ticket::factory(10)->create();
     }
 }
